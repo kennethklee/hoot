@@ -5,7 +5,7 @@ People discovery in events
 
 requirements
 ===
-* Python
+* Python 2.7
 * PIP
 * virtualenv
 
