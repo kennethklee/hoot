@@ -15,7 +15,7 @@ install
 * clone the repo `git clone git@github.com:kennethklee/hoot.git`
 * go into the project `cd hoot`
 * create virtual env `mkvirtualenv hoot`
-* run `pip -r requirements.txt`
+* run `pip install -r requirements.txt`
 
 When you're done working on it, `deactivate`
 
