@@ -16,6 +16,7 @@ install
 * go into the project `cd hoot`
 * create virtual env `mkvirtualenv hoot`
 * run `pip install -r requirements.txt`
+* make a copy of the dev settings `mv settings/example_development.py settings/development.py`
 
 When you're done working on it, `deactivate`
 
