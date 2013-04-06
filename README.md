@@ -31,7 +31,7 @@ deploy
 Requirements:
 * fabric
 
-# To deploy to staging: `fab staging deploy`
-# To deploy to production: `fab production deploy`
+1. To deploy to staging: `fab staging deploy`
+2. To deploy to production: `fab production deploy`
 
 
