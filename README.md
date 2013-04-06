@@ -26,4 +26,12 @@ run the server
 ===
 `./manage.py runserver`
 
+deploy
+===
+Requirements:
+* fabric
+
+# To deploy to staging: `fab staging deploy`
+# To deploy to production: `fab production deploy`
+
 
