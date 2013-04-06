@@ -12,4 +12,9 @@ DATABASES = {
     }
 }
 
-
+FABRIC_DOMAIN = 'hoot.konquest.com'
+FABRIC_USER = 'deploy'
+FABRIC_HOST = 'hoot.konquest.com'
+FABRIC_PASSWORD = 'hoot'
+FABRIC_REPO = 'git@github.com:kennethklee/hoot.git'
+FABRIC_BRANCH = 'master'
