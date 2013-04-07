@@ -4,5 +4,5 @@
 settings/development.py
 fabfile/
 *.sqlite
-static/
-media/
+/static/
+/media/
