@@ -87,9 +87,6 @@ TEMPLATE_DIRS = (
     path('app/assets/views'),
 )
 
-import pdb
-pdb.set_trace()
-
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
