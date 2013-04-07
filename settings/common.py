@@ -55,6 +55,7 @@ MEDIA_URL = '/media/'
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
 STATIC_ROOT = path('static')
+#STATIC_DOC_ROOT = path('assets')
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -86,6 +87,37 @@ TEMPLATE_LOADERS = (
 TEMPLATE_DIRS = (
     path('app/assets/views'),
 )
+
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+
+PIPELINE_COMPILERS = (
+  'pipeline.compilers.sass.SASSCompiler',
+  'pipeline.compilers.coffee.CoffeeScriptCompiler',
+)
+
+#PIPELINE_CSS_COMPRESSOR = None
+'''
+PIPELINE_CSS = {
+    'application': {
+        'source_filenames': (
+          'stylesheets/*.css',
+        ),
+        'output_filename': 'stylesheets/application.css',
+        'extra_context': {
+            'media': 'screen,projection',
+        },
+    },
+}
+
+PIPELINE_JS = {
+    'application': {
+        'source_filenames': (
+          'javascripts/*.js',
+        ),
+        'output_filename': 'javascripts/application.js',
+    }
+}
+'''
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
