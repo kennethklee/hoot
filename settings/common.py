@@ -1,7 +1,17 @@
 # Django settings for hoot2 project.
 
+import sys
+from os.path import abspath, basename, dirname, join, normpath
+
+ROOT_PATH = dirname(dirname(abspath(__file__)))
+PROJECT_NAME = basename(ROOT_PATH)
+path = lambda *a: normpath(join(ROOT_PATH, *a))
+
+SITE_NAME = 'hoot'
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+ENVIRONMENT = 'development'
 
 ADMINS = (
     ('Kenneth Lee', 'kennethkl@gmail.com'),
@@ -33,18 +43,19 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = path('media')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = path('static')
+#STATIC_DOC_ROOT = path('assets')
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -52,9 +63,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+    path('app/assets/static'),
 )
 
 # List of finder classes that know how to find static files in
@@ -75,6 +84,41 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
+TEMPLATE_DIRS = (
+    path('app/assets/views'),
+)
+
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+
+PIPELINE_COMPILERS = (
+  'pipeline.compilers.sass.SASSCompiler',
+  'pipeline.compilers.coffee.CoffeeScriptCompiler',
+)
+
+#PIPELINE_CSS_COMPRESSOR = None
+'''
+PIPELINE_CSS = {
+    'application': {
+        'source_filenames': (
+          'stylesheets/*.css',
+        ),
+        'output_filename': 'stylesheets/application.css',
+        'extra_context': {
+            'media': 'screen,projection',
+        },
+    },
+}
+
+PIPELINE_JS = {
+    'application': {
+        'source_filenames': (
+          'javascripts/*.js',
+        ),
+        'output_filename': 'javascripts/application.js',
+    }
+}
+'''
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -89,12 +133,6 @@ ROOT_URLCONF = 'urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'wsgi.application'
-
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
 
 INSTALLED_APPS = (
     'django.contrib.auth',

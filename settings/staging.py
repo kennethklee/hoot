@@ -1,5 +1,8 @@
 from common import *
 
+ENVIRONMENT = 'staging'
+DEBUG = False
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
@@ -11,6 +14,9 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default.
     }
 }
+
+MEDIA_ROOT = '/data/web/hoot.konquest.com/media'
+STATIC_ROOT = '/data/web/hoot.konquest.com/static'
 
 FABRIC_DOMAIN = 'hoot.konquest.com'
 FABRIC_USER = 'deploy'
