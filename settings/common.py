@@ -146,6 +146,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'pipeline',
     'south',
+    'api',
     'app',
 )
 
