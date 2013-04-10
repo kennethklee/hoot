@@ -1,7 +1,8 @@
-# Django settings for hoot2 project.
+from auth import *
 
 import sys
 from os.path import abspath, basename, dirname, join, normpath
+
 
 ROOT_PATH = dirname(dirname(abspath(__file__)))
 PROJECT_NAME = basename(ROOT_PATH)
@@ -96,6 +97,7 @@ PIPELINE_COMPILERS = (
 )
 
 #PIPELINE_CSS_COMPRESSOR = None
+
 '''
 PIPELINE_CSS = {
     'application': {
@@ -108,16 +110,16 @@ PIPELINE_CSS = {
         },
     },
 }
-
-PIPELINE_JS = {
-    'application': {
-        'source_filenames': (
-          'javascripts/*.js',
-        ),
-        'output_filename': 'javascripts/application.js',
-    }
-}
 '''
+PIPELINE_JS_COMPRESSOR = None
+PIPELINE_JS = {
+  'application': {
+    'source_filenames': (
+      'javascripts/*.js',
+    ),
+    'output_filename': 'javascripts/application.js',
+  }
+}
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -128,8 +130,6 @@ MIDDLEWARE_CLASSES = (
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
-
-ROOT_URLCONF = 'urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'wsgi.application'
@@ -146,9 +146,12 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'pipeline',
     'south',
+    'social_auth',
     'api',
     'app',
 )
+
+ROOT_URLCONF = 'urls'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
