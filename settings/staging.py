@@ -1,7 +1,7 @@
 from common import *
 
 ENVIRONMENT = 'staging'
-DEBUG = False
+DEBUG = True
 
 DATABASES = {
     'default': {

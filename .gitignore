@@ -6,3 +6,5 @@ fabfile/
 *.sqlite
 /static/
 /media/
+app/assets/stylesheets/.sass-cache/
+

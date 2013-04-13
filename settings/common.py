@@ -1,7 +1,8 @@
-# Django settings for hoot2 project.
+from auth import *
 
 import sys
 from os.path import abspath, basename, dirname, join, normpath
+
 
 ROOT_PATH = dirname(dirname(abspath(__file__)))
 PROJECT_NAME = basename(ROOT_PATH)
@@ -63,7 +64,7 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    path('app/assets/static'),
+    path('app/assets'),
 )
 
 # List of finder classes that know how to find static files in
@@ -85,22 +86,21 @@ TEMPLATE_LOADERS = (
 )
 
 TEMPLATE_DIRS = (
-    path('app/assets/views'),
+    path('app/templates'),
 )
 
-STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+# STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 
 PIPELINE_COMPILERS = (
   'pipeline.compilers.sass.SASSCompiler',
   'pipeline.compilers.coffee.CoffeeScriptCompiler',
 )
 
-#PIPELINE_CSS_COMPRESSOR = None
-'''
+PIPELINE_CSS_COMPRESSOR = None
 PIPELINE_CSS = {
     'application': {
         'source_filenames': (
-          'stylesheets/*.css',
+          'stylesheets/*.sass',
         ),
         'output_filename': 'stylesheets/application.css',
         'extra_context': {
@@ -109,15 +109,16 @@ PIPELINE_CSS = {
     },
 }
 
+PIPELINE_JS_COMPRESSOR = None
+#PIPELINE_DISABLE_WRAPPER = True
 PIPELINE_JS = {
-    'application': {
-        'source_filenames': (
-          'javascripts/*.js',
-        ),
-        'output_filename': 'javascripts/application.js',
-    }
+  'application': {
+    'source_filenames': (
+      'javascripts/application.js',
+    ),
+    'output_filename': 'javascripts/application.js',
+  }
 }
-'''
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -128,8 +129,6 @@ MIDDLEWARE_CLASSES = (
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
-
-ROOT_URLCONF = 'urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'wsgi.application'
@@ -146,8 +145,12 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'pipeline',
     'south',
+    'social_auth',
+    'api',
     'app',
 )
+
+ROOT_URLCONF = 'urls'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load compressed %}
+<html>
+  <head>
+    <title>Hoot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen,projection">
+    <link href="/static/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" media="screen,projection">
+    {% compressed_css 'application' %}
+  </head>
+  <body>
+<div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId: '474196079318905',
+        status: true,
+      });
+    };
+  </script>
+
+    <article id="app" page="login">
+      <section id="login"></section>
+      <section id="home">Home</section>
+    </article>
+
+    <script src="//connect.facebook.net/en_US/all.js"></script>
+    <script src="/static/javascripts/library/jquery-1.9.1.min.js"></script>
+    <!-- <script src="/static/javascripts/library/can-1.1.5.jquery.js"></script> -->
+    <script src="/static/javascripts/library/can.jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    {% compressed_js 'application' %}
+  </body>
+</html>
