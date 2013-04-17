@@ -9,10 +9,10 @@ import app.views
 import api.urls
 
 urlpatterns = patterns('',
-    url(r'', include('social_auth.urls')),
-    
-    url(r'^api/$', include(api.urls)),
+    url(r'^api/', include(api.urls)),
     url(r'^$', app.views.index, name='index'),
+
+    # url(r'', include('social_auth.urls')),
 
 
     # Uncomment the admin/doc linegit below to enable admin documentation:

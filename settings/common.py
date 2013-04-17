@@ -10,9 +10,6 @@ path = lambda *a: normpath(join(ROOT_PATH, *a))
 
 SITE_NAME = 'hoot'
 
-FACEBOOK_APP_ID='474196079318905'
-FACEBOOK_APP_SECRET='9c0132c1c8c9a78d3029b10edcd0a5f8'
-
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 ENVIRONMENT = 'development'
