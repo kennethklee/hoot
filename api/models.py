@@ -21,7 +21,8 @@ class FacebookProfile(models.Model):
   
 class UserProfile(models.Model):
     user = models.ForeignKey(User, unique=True)
-    about = models.CharField(max_length=255)
+    blurb = models.CharField(max_length=255)
+    avatar_url = models.TextField()
 
     def __unicode__(self):
         return "UserProfile"

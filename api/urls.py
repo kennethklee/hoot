@@ -8,7 +8,9 @@ v1_api.register(resources.AccessTokenResource())
 
 urlpatterns = patterns('',
     # Insert into v1 api
-    url(r'^v1/access_token/?$', views.AccessTokenView.as_view()),
+    url(r'^v1/access/?$', views.AccessTokenView.as_view()),
+    url(r'^v1/profiles/?$', views.UserProfileListView.as_view()),
+    url(r'^v1/profiles/(?P<pk>\d+)/?$', views.UserProfileView.as_view()),
 
-    url(r'', include(v1_api.urls)),
+    #url(r'', include(v1_api.urls)),
 )
