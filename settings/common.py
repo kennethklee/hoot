@@ -146,7 +146,6 @@ INSTALLED_APPS = (
     'pipeline',
     'south',
     'tastypie',
-    # 'social_auth',
     'api',
     'app',
 )

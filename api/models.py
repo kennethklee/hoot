@@ -16,7 +16,7 @@ class UserAccessToken(models.Model):
 
     def __unicode__(self):
         return "UserAccessToken"
-  
+
 
 class FacebookProfile(models.Model):
     user = models.ForeignKey(User, unique=True)

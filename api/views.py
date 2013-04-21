@@ -52,8 +52,13 @@ class AccessTokenView(View):
                 'access_token': access_token, # TODO don't use facebook's access token
                 'expires': time.mktime(expires_at.timetuple())  # TODO don't use facebook's expiry
             }
-            user_access_token = UserAccessToken.objects.get_or_create(user = user, **arg_access_token)
-
+            try:
+                user_access_token = UserAccessToken.objects.get(user = user)
+                is_new_access_token = False
+            except UserAccessToken.DoesNotExist:
+                user_access_token = UserAccessToken.objects.create(user = user, **arg_access_token)
+                is_new_access_token = True
+                
             # TODO update access token
             print 'user {0} exists'.format(user.email)
         else:
