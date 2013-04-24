@@ -11,7 +11,19 @@
 
     onConnected: function() {
       var self = this;
-      console.log('logged in');
+      console.log('logged in', FB.getAccessToken());
+      $.ajax({
+        url: '/api/v1/access',
+        method: 'POST',
+        dataType: 'json',
+        data: JSON.stringify({
+          type: 'facebook',
+          access_token: FB.getAccessToken()
+        }),
+        success: function(arguments) {
+          console.log('success', arguments)
+        }
+      })
       FB.api('/me', function(response) {
         //self.options.user = User.model(response);
         new Home('#home', {user: response});
@@ -22,10 +34,16 @@
     '.login click': function(el, event) {
       var self = this;
       FB.getLoginStatus(function(response) {
+        console.log('loginStatus', response);
         if (response.status === 'connected') {
           self.onConnected();
         } else {
-          FB.login(function() {self.onConnected()});
+          FB.login(function(response) {
+            console.log('login', response);
+            if (response.authResponse && response.status === 'connected') {
+              self.onConnected();
+            }
+          });
         }
       });
     },
