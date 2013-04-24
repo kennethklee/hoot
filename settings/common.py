@@ -97,17 +97,17 @@ PIPELINE_COMPILERS = (
 )
 
 PIPELINE_CSS_COMPRESSOR = None
-PIPELINE_CSS = {
-    'application': {
-        'source_filenames': (
-          'stylesheets/*.sass',
-        ),
-        'output_filename': 'stylesheets/application.css',
-        'extra_context': {
-            'media': 'screen,projection',
-        },
-    },
-}
+#PIPELINE_CSS = {
+#    'application': {
+#        'source_filenames': (
+#          'stylesheets/*.sass',
+#        ),
+#        'output_filename': 'stylesheets/application.css',
+#        'extra_context': {
+#            'media': 'screen,projection',
+#        },
+#    },
+#}
 
 PIPELINE_JS_COMPRESSOR = None
 #PIPELINE_DISABLE_WRAPPER = True
